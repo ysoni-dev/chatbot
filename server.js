@@ -19,6 +19,10 @@ app.use(express.json());
 app.use(cors())
 
 
+app.get('/',(req,res)=>{
+  res.send('helo')
+})
+
 app.post('/openai', async function(req,res){
   try {
       await chatBot(req,res)
