@@ -5,7 +5,7 @@ import sendbtn from './logos/send64.png'
 import historybtn from './logos/history.png'
 import axios from 'axios';
 
-const socket = io('http://localhost:3001'); 
+const socket = io('https://chatbot-seven-topaz.vercel.app/'); 
 
 function App() {
   const [inputMessage, setInputMessage] = useState('');
@@ -32,7 +32,7 @@ function App() {
 
   const showChats = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/history');
+      const response = await axios.get('https://chatbot-seven-topaz.vercel.app/history');
       setChats(response.data);
 
       console.log(chats);
@@ -48,7 +48,7 @@ function App() {
       setMessages((prevMessages) => [...prevMessages, { content: inputMessage, type: 'user' }]);
 
       try {
-        const response = await axios.post('http://localhost:3001/openai', {
+        const response = await axios.post('https://chatbot-seven-topaz.vercel.app/openai', {
           message: inputMessage,
         });
 
